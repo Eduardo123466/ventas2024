@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venta de Autos</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            text-align: center;
+        }
+
+        h1 {
+            background-color: #003366;
+            color: white;
+            padding: 20px;
+            margin: 0;
+        }
+
+        h2 {
+            color: #003366;
+            margin-top: 20px;
+        }
+
+        form {
+            background-color: #e3f2fd;
+            border: 1px solid #bbdefb;
+            padding: 20px;
+            margin: 20px auto;
+            width: 50%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            font-weight: bold;
+            color: #00509e;
+        }
+
+        select {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #bbdefb;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #004d99;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #003366;
+        }
+
+        #productImage {
+            margin-top: 20px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+        }
+
+        #productDescription {
+            background-color: #f1f8e9;
+            padding: 10px;
+            border: 1px solid #c8e6c9;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        function updateProductDetails() {
+            const product = document.getElementById("product").value;
+            const productImage = document.getElementById("productImage");
+            const productDescription = document.getElementById("productDescription");
+
+            if (product === "Avanza") {
+                productImage.src = "gris.png"; 
+                productDescription.textContent = "Toyota Avanza - $500,000 | Color: Gris | Espacio para 7 pasajeros.";
+            } else if (product === "Corolla") {
+                productImage.src = "hhhhh.jpg"; 
+                productDescription.textContent = "Toyota Corolla - $421,100 | Color: Rojo | Espacio para 5 pasajeros.";
+            } else if (product === "Hilux") {
+                productImage.src = "hhhhh.jpg"; 
+                productDescription.textContent = "Toyota Hilux - $445,400 | Color: Gris | Espacio para 5 pasajeros.";
+            } else {
+                productImage.src = ""; 
+                productDescription.textContent = "Seleccione un auto para ver los detalles.";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Bienvenido a Toyota</h1>
+
+    <!-- Formulario -->
+    <form action="manage_order.php" method="post">
+        <label for="product">Seleccione un Auto:</label><br>
+        <select id="product" name="product" onchange="updateProductDetails()" required>
+            <option value="">Seleccione uno</option>
+            <option value="Avanza">Toyota Avanza</option>
+            <option value="Corolla">Toyota Corolla</option>
+            <option value="Hilux">Toyota Hilux</option>
+        </select><br>
+        <input type="submit" value="Finalizar Compra">
+    </form>
+
+    <!-- Sección de detalles del producto -->
+    <h2>Detalles del Producto</h2>
+    <img id="productImage" src="" alt="Imagen del Producto" style="width:300px; height:auto;">
+    <p id="productDescription">Seleccione un auto para ver los detalles.</p>
+</body>
+
+</html>
